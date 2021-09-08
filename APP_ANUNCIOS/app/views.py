@@ -42,6 +42,8 @@ def home(request):
 
 #permiso para entrar a cualquier pesgtaña
 #@login_required
+def galeria(request):
+    return render(request, 'app/galeria.html')
 
 @permission_required('app.add_producto')
 def agregar_producto(request):
