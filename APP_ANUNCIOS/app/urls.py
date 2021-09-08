@@ -9,6 +9,7 @@ router.register('marca', MarcaViewset)
 
 urlpatterns = [
     path('', home, name='home'),
+    path('terminos/', terminos, name='terminos'),
     path('cat/<id>/', cat, name='cat'),
     path('agregar-producto/', agregar_producto, name='agregar_producto'),
     path('listar-producto/', listar_productos, name='listar_productos'),

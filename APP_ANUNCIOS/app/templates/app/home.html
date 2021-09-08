@@ -3,26 +3,6 @@
 {% load static %} 
 
 {% block js %} 
-<script>
-    function eliminarProducto(id) {
-        Swal.fire({
-            "title": "¿Estas seguro?",
-            "text":"Esta acción no se puede deshacer",
-            "icon": "question",
-            "showCancelButton":true,
-            "cancelButtonText":"No, Cancelar",
-            "confirmButtonText":"Si, Eliminar",
-            "reverseButtons":true,
-            "confirmButtonColor":"#dc3545"
-        })
-        .then(function(result) {
-            if(result.isConfirmed){
-                window.location.href = "/eliminar-producto/"+id+"/"
-            }
-        })
-    }
-</script>
-
 <script src="{% static 'app/js/menu.js' %}"></script>
 <script>
     $(document).ready(function() {
@@ -30,10 +10,9 @@
           mode: 'fade',//horizontal, vertical, fade
           auto: true,
           pause: 2000
-      });   
+      });
     });
 </script>
-
 {% endblock %}
 
 {% block css %} 
@@ -57,42 +36,37 @@
         <img src="{% static 'app/img/banner/banner3.png' %}" alt="">
     </div>
 </div>
-
 {% load humanize %}
 <h1>ANUNCIOS</h1>
-<div class="productos">    
-    {% for p in productos %}
-        <div class="producto">
-
-        <div class="contenedor_producto">
+<div class="anuncios">    
+    <ul>
+   
+        {% for p in productos %}
+        <li>
             {% if p.imagen %}
-            <img class="anunciosimg" src="{{ p.imagen.url }}" alt="imagen producto">
+            <img src="{{ p.imagen.url }}" alt="imagen producto">
             {% endif %}
             
-                {% if p.precio %}
-                <h6>${{ p.precio | intcomma }}</h6>
-                {% endif %}
+            <div class="info">
+                <h5>{{ p.marca | capfirst }}</h5>
+                <h2>{{ p.nombre | title }}</h2>
+                <h2>{{ p.username | title }}</h2>
+                <h6>{{ p.descripción }}</h6> 
+                <h6>{{ p.fecha_fabricacion }}</h6>
 
-                <div class="detalle">
-                    <h5>{{ p.marca | capfirst }}</h5>
-                    <h2>{{ p.nombre | title }}</h2>
-                    <h2>{{ p.username | title }}</h2>
-                    <h3>{{ p.descripción }}</h3>
-                    <h6>{{ p.fecha_fabricacion }}</h6>
-    
-                    {% if user.username == p.username%}
-                    {% if user.is_authenticated %}
-                    <a href="{% url 'modificar_producto' p.id %}"><img class="imghome" src="../static/app/img/editar.png"></a>
-                    {% endif %}
-                    {% if user.is_authenticated %}
-                    <a href="#" onclick="eliminarProducto({{ p.id }})"><img class="imghome" src="../static/app/img/eliminar.png"></a> 
-                    {% endif %}
-                    {% endif %}
-                </div>
+                {% if user.username == p.username%}
+                {% if user.is_authenticated %}
+                <a href="{% url 'modificar_producto' p.id %}"><img src="{% static 'app/img/editar.ico'%}"></a>
+                {% endif %}
+                {% if user.is_authenticated %}
+                <a href="#" onclick="eliminarProducto({{ p.id }})"><img  src="{% static 'app/img/eliminar.ico'%}"></a> 
+                {% endif %}
+                {% endif %}
             </div>
-        </div>    
-    </div>
-    {% endfor %}
+            </li>
+            {% endfor %}
+        </ul>
+    
 
 </div>
 

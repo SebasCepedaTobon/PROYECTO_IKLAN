@@ -16,34 +16,45 @@
     
 </head>
 <body>
-
-    <div id="principal">
-        <header>
-            <h1 id="h1principal">IKLAN</h1>
-            <img  class="logo"  src="{% static 'app/img/logo.jpg' %}" alt="logo">            
-        </header>
-    </div>
-        <div>
+    <div>
             <nav id="nav">
                 <ul>
-                    
-                    <li><a href="{% url 'home' %}" >TODOS</a></li>
-                    {% for c in categorias %}
-                    <li><a href="{% url 'cat' c.id %}" >{{ c.nombre }}</a>
-                    {% endfor %}
-                    
-                    <li><a href="{% url 'home' %}">Home</a></li>
-                    {% if user.is_authenticated  %}
-                    <li><a href="{% url 'agregar_producto' %}">Agregar Anuncios</a></li>
-                    {% endif %}
-                    {% if perms.app.view_producto %}
-                    <li><a href="{% url 'listar_productos' %}">Listado de Anuncios</a></li>
-                    <li><a href="http://localhost:8000/admin/">Admin</a></li>
+                    <img  class="logo"  src="{% static 'app/img/logo.png' %}" alt="logo">
 
-                    {% endif %}
+                    <li><a href="{% url 'home' %}">Inicio</a></li>
+                    <li><a href="{% url 'home' %}"> Categoria</a>
+                        <ul>
+                            {% for c in categorias %}
+                            <li><a href="{% url 'cat' c.id %}" >{{ c.nombre }}</a>
+                            {% endfor %}
+                        </ul>
+                    </li>
+
                     {% if user.is_authenticated  %}
-                    <li><a href="{% url 'logout' %}">Cerrar sesion</a></li>
-                    <li><a href="#">{{ user.username}}</a></li>
+
+                    <li><a href="">Anuncios</a>
+                        <ul>
+                            <li><a href="{% url 'agregar_producto' %}">Agregar Anuncios</a></li>
+                            
+                            {% if perms.app.view_producto %}
+                            <li><a href="{% url 'listar_productos' %}">Listado de Anuncios</a></li>
+                            {% endif %}
+                        </ul>
+                    {% endif %}
+                    </li>
+                    
+                    
+                    <li>{% if user.is_authenticated  %}
+                        <img src="{% static 'app/img/persona.ico'%}" alt="persona1" >
+                        <ul>
+                            
+                            <li><a href="#">{{ user.username }}</a>
+                            <li><a href="{% url 'logout' %}">Cerrar sesion</a></li>
+                            {% if perms.app.view_producto %}
+                            <li><a href="http://localhost:8000/admin/">Admin</a></li>
+                            {% endif %}
+                        </ul>
+                    </li>
                     <li>
                         {% for auth in backends.associated %}
                             {% if auth.provider == 'facebook' %}
@@ -52,15 +63,20 @@
                         {% endfor %}
                     </li>
                     {% else %}
-                    <li><a href="{% url 'login' %}">Iniciar sesion</a></li>
-                    <li><a href="{% url 'registro' %}">Registrate</a></li>
+                    <li>
+                        <img src="{% static 'app/img/persona.ico'%}" alt="persona2">
+                        <ul>
+                            <li><a href="{% url 'login' %}">Iniciar sesion</a></li>
+                            <li><a href="{% url 'registro' %}">Registrate</a></li>
+                        </ul>
+                    </li>
                     {% endif %}
                 </ul>
             </nav>
     </div>    
-
+     
     <div id="contenido">
-
+<br><br><br><br><br><br
         {% block contenido %}
         {% endblock %}
 
@@ -68,58 +84,19 @@
 
     <br><br><br>
     <footer>
-        <div class="footer">
-            <div class="footer1">
-                <img src="{% static 'app/img/footer/new.png' %}" alt="balance">
+        <div class="footer"><br>
+            <div class="redes">
+                <a href="ttps://www.facebook.com/IKLAN-1907327069553206/?ref=pages_you_manage"><img src="{% static 'app/img/facebook.ico'%}" alt="facebook"><b> Facebook</b></a><br><br>
+                <a href="https://instagram.com/iklan_anuncios?utm_medium=copy_link"><img src="{% static 'app/img/instagram.ico'%}" alt=""><b> Instagram</b></a><br><br>
+                <a href="https://wa.link/m8yp4o"><img src="{% static 'app/img/whatsapp.ico'%}" alt=""><b> WhatApp</b></a>
             </div>
-
-            <div class="footer1">
-                <img src="{% static 'app/img/footer/puma.png' %}" alt="puma">
-                
+            <div class="terminos"><br><br><br>
+               <h3><a href="{% url 'terminos' %}"><b>Terminos y Condiciones</b></a></h3> 
             </div>
-
-            <div class="footer1">
-                <img src="{% static 'app/img/footer/fila.png' %}" alt="fila">
-                
-            </div>
-
-            <div class="footer1">
-                <img src="{% static 'app/img/footer/nike.png' %}" alt="nike">
-                
-            </div>
-            <div class="footer1">
-                <img src="{% static 'app/img/footer/adidas.png' %}" alt="adidas">
-            </div>
-       
-            <div class="footer1">
-                <a id="footerTITULO">NOVEDADES</a>
-                <a>Día din IVA</a>
-                <a href="#">Black Friday</a>
-            </div>
-
-            <div class="footer1">
-                <a id="footerTITULO">ASISTENCIA</a>
-                <a href="#">Servicio al cliente</a>
-                <a href="#">Preguntas frecuentes</a>
-            </div>
-
-            <div class="footer1">
-                <a id="footerTITULO">TÉRMINOS Y CONDICIONES</a>
-                <a href="#">Política de Privacidad</a>
-                <a href="#">Aviso de Privacidad</a>
-        </div>
-        <div class="footerredes">
-            <div class="footer1">
-                <a href="https://www.facebook.com/TENIS-TENIS-104060735272582/?ref=pages_you_manage"><img src="{% static 'app/img/footer/facebook.png' %}" alt="puma"></a>
-            </div>
-
-            <div class="footer1">
-                <a href="https://www.instagram.com/_tenisytenis_/"><img src="{% static 'app/img/footer/instagram.png' %}" alt="fila"></a>
-            </div>
-
-            <div class="footer1">
-                <a href="https://www.youtube.com/channel/UCXn4FMj4jgR6C-2OuO0u0jQ"><img src="{% static 'app/img/footer/youtube.png' %}" alt="fila"></a>
-
+            <div class="contactanos">
+                <h4><b>CONTACTANOS</b></h4>
+                <a href="https://wa.link/t3r2k7"><b>3127463573</b></a><br><br>
+                <a href="https://wa.link/m8yp4o"><b>3146745331</b></a>
             </div>
 
         </div>

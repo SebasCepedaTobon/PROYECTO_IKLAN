@@ -5,53 +5,32 @@
 
 
 body{
-    background-color:#ffffff;
+    background-color:#fef7e5
+    ;
     font-family: 'Open Sans', sans-serif;
 }
 
-#principal{
-    background-color: #e9e9e9;
-}
-header{
-	display:flex;
-	justify-content:space-around;
-	align-items:center;
-}
 
 
-#h1principal{
-    font-weight: bold;
-	color:#EDC031;
-    text-align:center;
-	text-transform:uppercase;
-	text-shadow:10px 10px 4px #CCCCCC;
-	width:40%;
-    transition: 1s;    
-}
 
-#h1principal:hover{
-    transform: scale(1.2);
-}
-
-.logo {
-    width: 150px;
-    margin-left: 30px;
-    transition: 1s;
-}
-
-.logo:hover{
-    transform: rotate(360deg);
+.logo{
+    height: 100px;
+    width: 100px;
 }
 
 
+/*Menu principal*/
 
-nav{
-	background-color:#dfd9d9;
-    display: flex;
-    justify-content: flex-end;/*flex-start - center - flex-end*/ /*horizontal*/
-    align-items: center;
-    height: 100%;
+nav li img{
+
+ border-radius: 52%;
+
 }
+nav li a img{
+    width: 70px;
+    border-radius: 52%;
+   
+   }
 
 nav ul{
 	min-height:50px;
@@ -62,13 +41,15 @@ nav ul{
 	display:flex;
 	justify-content:space-evenly;
 	align-items:center;
+    position: fixed;
+    background-color: #934f39;
+    z-index: 100;
+
 }
 
 nav ul li{
 	list-style:none;
 }
-
-
 
 nav ul li a{
     font-weight: bold;
@@ -78,9 +59,38 @@ nav ul li a{
     border-radius:8px;
 }
 
-nav ul li a:hover{
-	color:rgb(0, 28, 88);
+nav li ul {
+    display:none;
+    position:absolute;
+    
 }
+
+nav li:hover > ul {
+    display:block;
+    width: 200px;
+    border-radius: 12px;
+}
+
+nav li ul li {
+    position:relative;
+}
+
+nav ul li a:hover{
+	color:#fef7e5;
+    box-shadow: 0 0 20px #fef7e5
+    ;
+}
+
+
+nav ul img:hover{
+
+    box-shadow: 0 0 50px #fef7e5;
+    -webkit-filter: invert(100%);
+    filter: invert(100%);
+    border-radius: 50%;
+}
+
+
 
 /*TITULO EN EL HOME (PRODUCTOS)*/
 h1{
@@ -106,119 +116,125 @@ h1:hover{
     min-height: 100vh;
 }
 
-.productos {
+.anuncios {
     display: flex;
     flex-wrap: wrap;
+    font: 1em sans-serif;
+    
+    
 }
 
-.producto {
-    width: 25%;
-    margin-top: 20px;
+
+.anuncios ul {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+    
+    }
+   
+.anuncios  li {
+   position: relative;
+   float: left;
+   width: 350px;
+   height: 255px;
+   overflow: hidden;
+   margin: 0 15px 15px 0;
+   }
+.anuncios img{
+    width: 350px;
+    height: 255px;
+}
+.anuncios a img{
+    width: 30px;
+    height: 35px;
 }
 
-.anunciosimg {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 9px;
-    transition: 1s;
-}
 
-.producto img:hover{
-    transform: scale(1.09);    
-}
+.anuncios .info {
+    display: none;
+    position: absolute;
+    bottom: 0;
+    z-index: 10;
+    background: rgba(0, 0, 0, 0.5);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#50000000,endColorstr=#50000000);
+    width: 100% ;
+    height: 100%;
+    color: #fef7e5;
+    padding: 10px;
+    border: solid #934f39;
+   }
+ 
+.anuncios li:hover .info {
+   display: block;
+   }
 
-.producto .detalle {
-    padding: 5px;
-}
 
-.detalle img{
-    width: 25px;
-    height: 30px;
-}
-
-.producto .contenedor_producto {
-    background-color: #ffffff;
-    width: 80%;
-    margin: 15px;
-}
-
-h2{
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: bold;
-}
-
-h3{
-    color: rgb(16, 105, 13);
-    font-family: monospace;
-}
-
-/*FOOTER*/
-
-footer{
-    width: 1349px;
-    padding:5px 0px;
-    background-color:#e9e9e9;
-}
-
-#footerTITULO{
-    font-weight: bold;
-    font-size: 18px;    
-}
-
+/*footer*/
 .footer{
-    display:flex;
-    width:900px;
-    justify-content: space-between;
-    flex-wrap:wrap;
-    margin-bottom: 20px;
-    margin-left: 200px;
-}
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr;
+    
+    width: 100%;
+    color: white;
+    background-color:#934f39;
+    left: 5%;
+    
+  }
+  
+  .redes{
+      grid-column:1;
+      color:black;
+      text-decoration:none;
+  }
+  
+  .redes a{
+      text-decoration:none;
+      margin-left: 20%;
+      color: black;
+    
+      
+  }
+  .redes a img :hover{
+    box-shadow: 0 0 20px black;
+    -webkit-filter: invert(100%);
+    filter: invert(100%);
+  }
+  
+  .terminos{
+      grid-column:2;
+      color:black;
+      text-align: center;
+  }
+  .terminos h3 a {
+      color: black;
+      text-decoration: none;
+  }
+  
+  .contactanos{
+      grid-column:3;
+      color:blablckck;
+      text-align: center;
+  }
+  .contactanos a{
+      color: black;
+      text-decoration:none;
+  }  
 
-.footerredes{
-    display:flex;
-    width:900px;
-    justify-content: space-between;
-    flex-wrap:wrap;
-    margin-left: 80px;
-}
+  .terminosparrafo {
 
-.footer1{
-    display: flex;
-    flex-direction: column;
-    padding: 50px;
-}
+      color:#000;
+      text-align: center;
+      width: 850px;
+      height: 300px;
+  }
+  
 
-.footer1 img{
-    width: 50px;
-    transition: 1s;
-}
-.footer1 img:hover{
-    transform: scale(2);
-}
-
-.footer1 a{
-    margin-top:15px;
-    color:rgb(0, 0, 0);
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 12px;
-}
-
-.footer1 a:hover{
-	color:rgb(0, 28, 88);
-    opacity:0.8;
-}
-
-.footer div img{
-    width: 50px;
-}
 
 /*FORMULARIOS*/
 
 /*Imagen de fondo de los formularios*/
 #imagenFormularios{
-    background: url("../img/Fondo_Formulario.jpeg");
+    background: url("../img/formulario.jpeg");
     background-attachment:fixed;
 	background-size:cover;
 }
@@ -226,9 +242,11 @@ footer{
 /*Formulario Login*/
 .cardlogin{
     border-radius: 1rem;
-    background-color: #e9e9e9;
     height: auto;
+    border:#fef7e5;
+	box-shadow: 0 0 20px #934f39;
 }
+
 
 /*Titulo del formulario*/
 #LosFormularios{
@@ -236,7 +254,7 @@ footer{
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
     text-transform:uppercase;
-	text-shadow:10px 10px 4px #CCCCCC;
+	text-shadow:10px 10px 4px #934f39;
     transition: 1s;
 }
 
@@ -253,14 +271,16 @@ footer{
 
 .btn.btn-success{
     font-weight: bold;
-    width: 500px;
-    background-color: rgb(156, 156, 153);
-    border-color: transparent;
+    width: 90px;
+    color: black;
+    border:#fef7e5;
+    background-color: #fef7e5;
+	box-shadow: 0 0 20px #934f39;
 }
 
 .btn.btn-success:hover{
-    background-color: rgb(194, 194, 194);
-    border-color: transparent;
+    background-color: #fef7e5;
+    border-color: #934f39;
 }
 
 /*boton continuar con facebook*/
@@ -272,11 +292,11 @@ footer{
 
 .facebook a{
     font-weight: bold;
-    background-color: rgb(15, 57, 247);
-    border-color: transparent;
-    padding: 7px 105px;
+    border:#fef7e5;
+    background-color: #fef7e5;
+	box-shadow: 0 0 20px #934f39;
+    padding: 7px 10px;
     text-decoration: none;
-    color: white;
     border-radius: 3px;
 }
 
@@ -284,63 +304,17 @@ footer{
 
 .facebook a:hover{
     color: white;
-    background-color: rgb(74, 91, 250);
-}
-
-/*Formulario contacto*/
-.cardContacto{
-    border-radius: 1rem;
-    background-color: #e9e9e9;
-    height: auto;
-}
-
-/*Bonton enviar*/
-.conEnviar{
-    display: flex;
-    justify-content: center;
-    align-content: center;
-}
-
-.btn.btn-primary{
-    background-color: rgb(156, 156, 153);
-    border-color: transparent;
-    padding: 6px 173px;
-    text-decoration: none;
-    color: white;
-    border-radius: 4px;
-    font-weight: bold;
+    background-color: rgb(160, 167, 231);
 }
 
 
-.btn.btn-primary:hover{
-    color: white;
-    background-color: rgb(194, 194, 194);
-}
-
-/*Bonton cancelar*/
-.conCancelar{
-    display: flex;
-    justify-content: center;
-    align-content: center;
-}
-
-.btn.btn-secondary{
-    font-weight: bold;
-    width: 500px;
-    background-color: rgb(172, 55, 55);
-    border-color: transparent;
-}
-
-.btn.btn-secondary:hover{
-    background-color: rgb(194, 69, 69);
-    border-color: transparent;
-}
 
 /*Formulario registro*/
 .cardRegistro{
     border-radius: 1rem;
-    background-color: #e9e9e9;
+    background-color: tranparent;
     height: auto;
+    box-shadow: 0 0 20px #934f39;
 }
 
 /*boton de registrarse*/
@@ -350,23 +324,19 @@ footer{
     align-content: center;
 }
 
-.btn.btn-success{
-    font-weight: bold;
-    width: 550px;
-    background-color: rgb(156, 156, 153);
-    border-color: transparent;
-}
 
 .btn.btn-success:hover{
-    background-color: rgb(194, 194, 194);
-    border-color: transparent;
+    background-color: #934f39;
+    border-color: #934f39;
 }
 
 /*Formulario de agregar producto*/
 .cardProductoNuevo{
     border-radius: 1rem;
-    background-color: #e9e9e9;
+    background-color: transparent;
     height: auto;
+    background-color: #fef7e5;
+	box-shadow: 0 0 20px #934f39;
 }
 
 .productoNuevo{
@@ -378,14 +348,14 @@ footer{
 /*Boton enviar*/
 .btn.btn-primary-Guardar{
     font-weight: bold;
-    width: 600px;
+    width: 90px;
     background-color: rgb(156, 156, 153);
-    border-color: transparent;
+    border-color: #934f39;
 }
 
 .btn.btn-primary-Guardar:hover{
     background-color: rgb(194, 194, 194);
-    border-color: transparent;
+    border-color: #934f39;
 }
 
 /*Boton cancelar*/
@@ -397,22 +367,23 @@ footer{
 
 .btn.btn-secondary-Cancelar{
     font-weight: bold;
-    width: 600px;
+    width: 90px;
     background-color: rgb(172, 55, 55);
-    border-color: transparent;
+    border-color: #934f39;
 }
 
 .btn.btn-secondary-Cancelar:hover{
     background-color: rgb(194, 69, 69);
-    border-color: transparent;
+    border-color: #934f39;
 }
 
 
 /*Formulario modificar producto*/
 .cardModificar{
     border-radius: 1rem;
-    background-color: #e9e9e9;
     height: auto;
+    background-color: #fef7e5;
+	box-shadow: 0 0 20px #934f39;
 }
 
 /*Boton de modificar el producto*/
@@ -424,14 +395,14 @@ footer{
 
 .btn.btn-primary-modificar-guar{
     font-weight: bold;
-    width: 600px;
+    width: 90px;
     background-color: rgb(156, 156, 153);
-    border-color: transparent;
+    border-color: #934f39;
 }
 
 .btn.btn-primary-modificar-guar:hover{
     background-color: rgb(194, 194, 194);
-    border-color: transparent;
+    border-color: #934f39;
 }
 
 /*Boton cancelar la modificación del producto*/
@@ -443,25 +414,27 @@ footer{
 
 .btn.btn-secondary-modificas-cance{
     font-weight: bold;
-    width: 600px;
-    background-color: rgb(172, 55, 55);
-    border-color: transparent;
+    width: 90px;
+    background-color: #934f39;
+    border-color: #934f39;
 }
 
 .btn.btn-secondary-modificas-cance:hover{
     background-color: rgb(194, 69, 69);
-    border-color: transparent;
+    border-color: #934f39;
 }
 
 /*Listado de producto*/
 .cardListado{
     border-radius: 1rem;
-    background-color: #e9e9e9;
+    background-color: #fef7e5;
+	box-shadow: 0 0 20px #934f39;
     height: auto;
 }
 
 .table>:not(caption)>*>* {
-    background-color: #d3d3d3;
+	
+    background-color:transparent ;
 }
 
 
@@ -505,32 +478,6 @@ header > div {
     width: 50%;
 }
 
-/*Sedes*/
-.sedes {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    gap: 30px;
-}
-
-.sedes img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 7px;
-    transition: 1s;
-}
-
-.sedes img:hover{
-    transform: scale(1.2);
-}
-
-.menu {
-    width: 40px;
-    position: absolute;
-    left: 10px;
-    top: 10px;
-    display:none;
-}
 
 /*FIN FOOTER*/
 
@@ -547,11 +494,6 @@ textarea {
     resize: none;
 }
 
-
-.formulario_contacto {
-    width: 500px;
-    margin-top:50px;
-}
 
 
 /*MEDIA QUERIES*/

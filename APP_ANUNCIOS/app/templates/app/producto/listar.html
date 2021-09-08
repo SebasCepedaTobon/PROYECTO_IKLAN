@@ -27,7 +27,7 @@
 {% block contenido %} 
 {% load humanize %}
 <body id="imagenFormularios">
-<br><br><br><br>
+
 <div class="cardListado">
     <div class="card-body">
 
@@ -58,10 +58,10 @@
                 </td>
                 <td>
                     {% if perms.app.change_producto %}
-                    <a href="{% url 'modificar_producto' p.id %}"><img src="../static/app/img/editar.png"></a>
+                    <a href="{% url 'modificar_producto' p.id %}"><img src="../static/app/img/editar.ico"></a>
                     {% endif %}
                     {% if perms.app.delete_producto %}
-                    <a href="#" onclick="eliminarProducto({{ p.id }})"><img src="../static/app/img/eliminar.png"></a> 
+                    <a href="#" onclick="eliminarProducto({{ p.id }})"><img src="../static/app/img/eliminar.ico"></a> 
                     {% endif %}
                 </td>
             </tr>

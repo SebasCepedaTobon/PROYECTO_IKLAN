@@ -43,6 +43,10 @@ def home(request):
     }
     return render(request, 'app/home.html', data)
 
+def terminos(request):
+
+    return render(request, 'app/terminos.html')
+
 def cat(request, id):
     productos = Producto.objects.filter(marca=id)
     categorias= Marca.objects.all()
