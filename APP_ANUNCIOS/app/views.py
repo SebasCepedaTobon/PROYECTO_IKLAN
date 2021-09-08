@@ -42,10 +42,7 @@ def home(request):
 
 #permiso para entrar a cualquier pesgtaña
 #@login_required
-def galeria(request):
-    return render(request, 'app/galeria.html')
 
-@permission_required('app.add_producto')
 def agregar_producto(request):
     data = {
         'form' : ProductoForm()
@@ -55,7 +52,7 @@ def agregar_producto(request):
         if formulario.is_valid():
             formulario.save()
             messages.success(request, "Producto registrado")
-            data["mensaje"] = "Se guardo correctamente"
+            
         else:
             data["form"] = formulario
 
@@ -78,7 +75,7 @@ def listar_productos(request):
     }
     return render(request, 'app/producto/listar.html', data)
 
-@permission_required('app.chage_producto')
+
 def modificar_producto(request, id):
     
     producto = get_object_or_404(Producto, id=id)
@@ -92,16 +89,17 @@ def modificar_producto(request, id):
         if formulario.is_valid():
             formulario.save()
             messages.success(request, "Se modifico correctamente")
-            return redirect(to="listar_productos")
+            data["mensaje"] = "modificado correctamente"
+            return redirect(to="home")
         data["form"] = formulario
     return render(request, 'app/producto/modificar.html', data)
 
-@permission_required('app.delete_producto')
+
 def eliminar_producto(request, id):
     producto = get_object_or_404(Producto, id=id)
     producto.delete()
     messages.success(request, "Se elimino corectamente")
-    return redirect(to="listar_productos")
+    return redirect(to="home")
 
 def registro(request):
     data = {

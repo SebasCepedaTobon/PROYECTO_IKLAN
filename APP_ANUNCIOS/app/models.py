@@ -9,7 +9,8 @@ class Marca(models.Model):
 
 class Producto(models.Model):
     nombre= models.CharField(max_length=50)
-    precio= models.IntegerField()
+    username = models.CharField(max_length=100)
+    precio= models.IntegerField(null=True)
     descripción = models.TextField()
     nuevo = models.BooleanField()
     marca = models.ForeignKey(Marca, on_delete=models.PROTECT)
@@ -18,10 +19,3 @@ class Producto(models.Model):
 
     def __str__(self):
         return self.nombre
-
-opciones_consultas = [
-    [0, "consultas"],
-    [1, "reclamo"],
-    [2, "sugerencia"],
-    [3, "felicitaciones"]
-]

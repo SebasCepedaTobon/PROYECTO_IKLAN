@@ -176,20 +176,20 @@ AUTHENTICATION_BACKENDS = [
 ]
 
 PWA_APP_NAME = "IKLAN"
-PWA_APP_DESCRIPTION = "Página de tenis"
+PWA_APP_DESCRIPTION = "Página de anuncios"
 PWA_APP_THEME_COLOR = "#74b9ff"
 PWA_APP_BACKGROUND_COLOR = "#00cec9"
 
 PWA_APP_ICONS = [
     {
-        "src": "/static/app/img/tenis.png",
+        "src": "/static/app/img/logo.png",
         "sizes": "160x160"
     }
 ]
 
 PWA_APP_ICONS_APPLE = [
     {
-        "src": "/static/app/img/tenis.png",
+        "src": "/static/app/img/logo.png",
         "sizes": "160x160"
     }
 ]

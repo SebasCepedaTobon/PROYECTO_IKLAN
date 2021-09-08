@@ -12,6 +12,7 @@ class ProductoSerializer(serializers.ModelSerializer):
     marca = MarcaSerialize(read_only=True)
     marca_id = serializers.PrimaryKeyRelatedField(queryset=Marca.objects.all(), source="marca")
     nombre = serializers.CharField(required=True, min_length=3)
+    precio = serializers.ImageField(required=False)
 
 
     def validate_nombre(self, value):

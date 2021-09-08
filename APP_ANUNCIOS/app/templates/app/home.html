@@ -3,6 +3,26 @@
 {% load static %} 
 
 {% block js %} 
+<script>
+    function eliminarProducto(id) {
+        Swal.fire({
+            "title": "¿Estas seguro?",
+            "text":"Esta acción no se puede deshacer",
+            "icon": "question",
+            "showCancelButton":true,
+            "cancelButtonText":"No, Cancelar",
+            "confirmButtonText":"Si, Eliminar",
+            "reverseButtons":true,
+            "confirmButtonColor":"#dc3545"
+        })
+        .then(function(result) {
+            if(result.isConfirmed){
+                window.location.href = "/eliminar-producto/"+id+"/"
+            }
+        })
+    }
+</script>
+
 <script src="{% static 'app/js/menu.js' %}"></script>
 <script>
     $(document).ready(function() {
@@ -10,9 +30,10 @@
           mode: 'fade',//horizontal, vertical, fade
           auto: true,
           pause: 2000
-      });
+      });   
     });
 </script>
+
 {% endblock %}
 
 {% block css %} 
@@ -44,14 +65,29 @@
 
         <div class="contenedor_producto">
             {% if p.imagen %}
-            <img src="{{ p.imagen.url }}" alt="imagen producto">
+            <img class="anunciosimg" src="{{ p.imagen.url }}" alt="imagen producto">
             {% endif %}
-            <div class="detalle">
-                <h5>{{ p.marca | capfirst }}</h5>
-                <h2>{{ p.nombre | title }}</h2>
+            
+                {% if p.precio %}
                 <h3>${{ p.precio | intcomma }}</h3>
-            </div>
+                {% endif %}
 
+                <div class="detalle">
+                    <h5>{{ p.marca | capfirst }}</h5>
+                    <h2>{{ p.nombre | title }}</h2>
+                    <h2>{{ p.username | title }}</h2>
+                    <h3>{{ p.descripción }}</h3>
+    
+                    {% if user.username == p.username%}
+                    {% if user.is_authenticated %}
+                    <a href="{% url 'modificar_producto' p.id %}"><img class="imghome" src="../static/app/img/editar.png"></a>
+                    {% endif %}
+                    {% if user.is_authenticated %}
+                    <a href="#" onclick="eliminarProducto({{ p.id }})"><img class="imghome" src="../static/app/img/eliminar.png"></a> 
+                    {% endif %}
+                    {% endif %}
+                </div>
+            </div>
         </div>    
     </div>
     {% endfor %}

@@ -12,8 +12,9 @@ from django.forms import ValidationError
 class ProductoForm(forms.ModelForm): 
 
     nombre = forms.CharField(min_length=3, max_length=50)
+    username = forms.CharField(min_length=3, max_length=100)
     imagen = forms.ImageField(required=False, validators=[MaxSizeFilevalidator(max_file_size=2)])
-    precio = forms.IntegerField(min_value=1, max_value=15000000)
+    precio = forms.IntegerField(required=False, min_value=1, max_value=15000000)
 
     def clean_nombre(self):
         nombre = self.cleaned_data["nombre"]
