@@ -15,13 +15,13 @@ class ProductoSerializer(serializers.ModelSerializer):
     precio = serializers.ImageField(required=False)
 
 
-    def validate_nombre(self, value):
-        existe = Producto.objects.filter(nombre__iexact=value).exists()
+  #  def validate_nombre(self, value):
+   #     existe = Producto.objects.filter(nombre__iexact=value).exists()
 
-        if existe:
-            raise serializers.ValidationError("Este producto ya existe")
+    #    if existe:
+     #       raise serializers.ValidationError("Este producto ya existe")
         
-        return value
+      #  return value
 
     class Meta:
         model = Producto

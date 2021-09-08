@@ -23,14 +23,11 @@
             <img  class="logo"  src="{% static 'app/img/logo.jpg' %}" alt="logo">            
         </header>
     </div>
-
-        
-        
         <div>
             <nav id="nav">
                 <ul>
                     
-                    <li><a href="{% url 'home' %}" >Todos</a></li>
+                    <li><a href="{% url 'home' %}" >TODOS</a></li>
                     {% for c in categorias %}
                     <li><a href="{% url 'cat' c.id %}" >{{ c.nombre }}</a>
                     {% endfor %}
@@ -60,7 +57,6 @@
                     {% endif %}
                 </ul>
             </nav>
-
     </div>    
 
     <div id="contenido">

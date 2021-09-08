@@ -16,14 +16,15 @@ class ProductoForm(forms.ModelForm):
     imagen = forms.ImageField(required=False, validators=[MaxSizeFilevalidator(max_file_size=2)])
     precio = forms.IntegerField(required=False, min_value=1, max_value=15000000)
 
-    def clean_nombre(self):
-        nombre = self.cleaned_data["nombre"]
-        existe = Producto.objects.filter(nombre__iexact=nombre).exists()
 
-        if existe:
-            raise ValidationError("Este nombre ya existe")
-        else:
-            return nombre
+#    def clean_nombre(self):
+#        nombre = self.cleaned_data["nombre"]
+#        existe = Producto.objects.filter(nombre__iexact=nombre).exists()
+
+        #if existe:
+         #   raise ValidationError("Este nombre ya existe")
+        #else:
+         #   return nombre
 
     class Meta:
         model = Producto
@@ -34,8 +35,6 @@ class ProductoForm(forms.ModelForm):
         }
 
 class CustomUserCreationFrom(UserCreationForm):
-    
-
     class Meta:
         model = User
         fields = ['username', "first_name", "last_name", "email", "password1","password2"]

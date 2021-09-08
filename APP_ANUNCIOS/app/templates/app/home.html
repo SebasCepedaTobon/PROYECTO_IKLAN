@@ -70,7 +70,7 @@
             {% endif %}
             
                 {% if p.precio %}
-                <h3>${{ p.precio | intcomma }}</h3>
+                <h6>${{ p.precio | intcomma }}</h6>
                 {% endif %}
 
                 <div class="detalle">
@@ -78,6 +78,7 @@
                     <h2>{{ p.nombre | title }}</h2>
                     <h2>{{ p.username | title }}</h2>
                     <h3>{{ p.descripción }}</h3>
+                    <h6>{{ p.fecha_fabricacion }}</h6>
     
                     {% if user.username == p.username%}
                     {% if user.is_authenticated %}
