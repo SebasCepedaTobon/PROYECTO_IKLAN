@@ -55,9 +55,7 @@
             <img src="{{ p.imagen.url }}" alt="imagen producto">
             {% endif %}
             <div class="info">
-                <h5>{{ p.marca | capfirst }}</h5>
-                <h2>{{ p.nombre | title }}</h2>
-                <h2>{{ p.username | title }}</h2>
+                <h4>{{ p.nombre | title }}</h4>
                 <h6>{{ p.descripción }}</h6> 
                 <h6>{{ p.fecha_fabricacion }}</h6>
 
