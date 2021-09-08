@@ -2,22 +2,12 @@ from django import forms
 from django.core.exceptions import ValidationError
 from django.forms.models import fields_for_model
 from django.shortcuts import redirect
-from .models import Contacto, Producto
+from .models import Producto
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from .validators import MaxSizeFilevalidator
 from django.forms import ValidationError
 
-
-class ContactoForm(forms.ModelForm):
-
-    #nombre = forms.CharField(widget=forms.TextInput(attrs={"class":"form-control"}))
-    
-
-    class Meta:
-        model = Contacto
-        #fields = ["nombre", "correo", "tipo_consulta", "mensaje", "avisos"]
-        fields = '__all__'
 
 class ProductoForm(forms.ModelForm): 
 

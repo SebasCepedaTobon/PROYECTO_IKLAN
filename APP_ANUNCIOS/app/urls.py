@@ -1,6 +1,6 @@
 from django.db import router
 from django.urls import include, path
-from .views import agregar_producto, contacto, galeria, home, listar_productos,\
+from .views import agregar_producto, home, listar_productos,\
      modificar_producto, eliminar_producto, registro, ProductoViewset, MarcaViewset, error_facebook
 from rest_framework import routers
 
@@ -10,8 +10,6 @@ router.register('marca', MarcaViewset)
 
 urlpatterns = [
     path('', home, name='home'),
-    path('contacto/', contacto, name='contacto'),
-    path('galeria/', galeria, name='galeria'),
     path('agregar-producto/', agregar_producto, name='agregar_producto'),
     path('listar-producto/', listar_productos, name='listar_productos'),
     path('modificar-producto/<id>/', modificar_producto, name='modificar_producto'),

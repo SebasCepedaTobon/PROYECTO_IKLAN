@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Marca, Producto, Contacto
+from .models import Marca, Producto
 from .forms import ProductoForm
 # Register your models here.
 
@@ -13,4 +13,3 @@ class ProductoAdmin(admin.ModelAdmin):
 
 admin.site.register(Marca)
 admin.site.register(Producto, ProductoAdmin)
-admin.site.register(Contacto)
