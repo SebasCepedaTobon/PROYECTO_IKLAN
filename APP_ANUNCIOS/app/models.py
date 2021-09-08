@@ -14,7 +14,7 @@ class Producto(models.Model):
     descripción = models.TextField()
     nuevo = models.BooleanField()
     marca = models.ForeignKey(Marca, on_delete=models.PROTECT)
-    fecha_fabricacion = models.DateField()
+    fecha_fabricacion = models.DateField(auto_now=True)
     imagen = models.ImageField(upload_to="productos", null=True)
 
     def __str__(self):

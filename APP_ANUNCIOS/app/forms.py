@@ -27,7 +27,7 @@ class ProductoForm(forms.ModelForm):
 
     class Meta:
         model = Producto
-        fields = '__all__'
+        fields = ['nombre', 'username', 'precio', 'descripción', 'nuevo', 'marca', 'imagen']
 
         widgets = {
             "fecha_fabricacion": forms.SelectDateWidget()

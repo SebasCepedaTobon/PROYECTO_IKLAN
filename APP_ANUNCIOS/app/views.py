@@ -10,6 +10,7 @@ from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required, permission_required
 from rest_framework import serializers, viewsets
 from .serializers import MarcaSerialize, ProductoSerializer
+from django.contrib.auth.models import User
 # Create your views here.
 
 def error_facebook(request):
@@ -35,10 +36,23 @@ class ProductoViewset(viewsets.ModelViewSet):
 
 def home(request):
     productos = Producto.objects.all()
+    categorias= Marca.objects.all()
     data ={
-        'productos': productos
+        'productos': productos,
+        'categorias': categorias
     }
     return render(request, 'app/home.html', data)
+
+def cat(request, id):
+    productos = Producto.objects.filter(marca=id)
+    categorias= Marca.objects.all()
+    data ={
+        'productos': productos,
+        'categorias': categorias
+    }
+    return render(request, 'app/cat.html', data)
+
+
 
 #permiso para entrar a cualquier pesgtaña
 #@login_required

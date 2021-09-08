@@ -29,12 +29,18 @@
         <div>
             <nav id="nav">
                 <ul>
+                    
+                    <li><a href="{% url 'home' %}" >Todos</a></li>
+                    {% for c in categorias %}
+                    <li><a href="{% url 'cat' c.id %}" >{{ c.nombre }}</a>
+                    {% endfor %}
+                    
                     <li><a href="{% url 'home' %}">Home</a></li>
                     {% if user.is_authenticated  %}
-                    <li><a href="{% url 'agregar_producto' %}">Agregar Producto</a></li>
+                    <li><a href="{% url 'agregar_producto' %}">Agregar Anuncios</a></li>
                     {% endif %}
                     {% if perms.app.view_producto %}
-                    <li><a href="{% url 'listar_productos' %}">Listado de Producto</a></li>
+                    <li><a href="{% url 'listar_productos' %}">Listado de Anuncios</a></li>
                     <li><a href="http://localhost:8000/admin/">Admin</a></li>
 
                     {% endif %}
