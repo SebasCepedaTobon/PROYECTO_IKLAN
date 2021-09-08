@@ -1,0 +1,33 @@
+{% extends 'app/base.html' %} 
+{% load static %}
+
+{% block js %}
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+{% endblock %}
+
+{% block contenido %} 
+
+<br>
+<h1 id=>Nuestras sedes</h1>
+           <br><br>
+           <div class="sedes">
+                <a data-fancybox="gallery" href="{% static 'app/img/tienda/tienda1.jpeg' %}"><img src="{% static 'app/img/tienda/tienda1.jpeg' %}"></a>
+                <a data-fancybox="gallery" href="{% static 'app/img/tienda/tienda2.jpeg' %}"><img src="{% static 'app/img/tienda/tienda2.jpeg' %}"></a>
+                <a data-fancybox="gallery" href="{% static 'app/img/tienda/tienda3.jpeg' %}"><img src="{% static 'app/img/tienda/tienda3.jpeg' %}"></a>
+                <a data-fancybox="gallery" href="{% static 'app/img/tienda/tienda4.jpeg' %}"><img src="{% static 'app/img/tienda/tienda4.jpeg' %}"></a>
+                <a data-fancybox="gallery" href="{% static 'app/img/tienda/tienda5.jpeg' %}"><img src="{% static 'app/img/tienda/tienda5.jpeg' %}"></a>
+                <a data-fancybox="gallery" href="{% static 'app/img/tienda/tienda6.jpeg' %}"><img src="{% static 'app/img/tienda/tienda6.jpeg' %}"></a>  
+                <a data-fancybox="gallery" href="{% static 'app/img/tienda/tienda7.jpeg' %}"><img src="{% static 'app/img/tienda/tienda7.jpeg' %}"></a>  
+                <a data-fancybox="gallery" href="{% static 'app/img/tienda/tienda8.jpeg' %}"><img src="{% static 'app/img/tienda/tienda8.jpeg' %}"></a>
+                <a data-fancybox="gallery" href="{% static 'app/img/tienda/tienda9.jpeg' %}"><img src="{% static 'app/img/tienda/tienda9.jpeg' %}"></a>
+                <a data-fancybox="gallery" href="{% static 'app/img/tienda/tienda10.jpeg' %}"><img src="{% static 'app/img/tienda/tienda10.jpeg' %}"></a>  
+                <a data-fancybox="gallery" href="{% static 'app/img/tienda/tienda11.jpeg' %}"><img src="{% static 'app/img/tienda/tienda11.jpeg' %}"></a>  
+                <a data-fancybox="gallery" href="{% static 'app/img/tienda/tienda12.jpeg' %}"><img src="{% static 'app/img/tienda/tienda12.jpeg' %}"></a>  
+           </div>
+
+{% endblock %}

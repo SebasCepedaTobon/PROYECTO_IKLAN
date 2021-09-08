@@ -1,0 +1,43 @@
+{% extends 'app/base.html' %}
+
+{% block contenido %} 
+
+
+{% load crispy_forms_tags %}
+<body id="imagenFormularios">
+<br><br>
+        <div class="row">
+            <div class="col-12 col-md-6 offset-md-3">
+                <div class="cardModificar">    
+                    <div class="card-body">
+                        <h2 id="LosFormularios">Editar producto</h2>
+                        <hr>
+                        <form action="" method="post" enctype="multipart/form-data">
+
+                            {% csrf_token %}
+                            {{ form | crispy }}
+
+                            <br>
+                            <div class="modificarProducto">
+                                <input type="submit" value="Editar" class="btn btn-primary-modificar-guar">
+                            </div>
+
+                            <br>
+
+                            <div class="canceModifiProducto">
+                                <input type="reset" value="Cancelar" class="btn btn-secondary-modificas-cance">
+                                &nbsp;
+                            </div>
+                            
+
+                    </form>
+                    {{mensaje}}
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br><br>
+</body>
+
+{% endblock %}

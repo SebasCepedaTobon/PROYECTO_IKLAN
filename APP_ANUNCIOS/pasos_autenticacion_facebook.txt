@@ -1,0 +1,69 @@
+#agregar en requirements.txt
+social-auth-app-django
+
+
+#agregar a installed_apps
+
+'social_django',
+
+#en el archivo principal de urls
+path('social-auth/', include('social_django.urls', namespace="social")),
+
+
+
+
+#tokens
+
+SOCIAL_AUTH_FACEBOOK_KEY = "key"
+SOCIAL_AUTH_FACEBOOK_SECRET = "secret"
+
+#agregar al final del settings.py
+
+AUTHENTICATION_BACKENDS = [
+    'social_core.backends.facebook.FacebookOAuth2',
+    'django.contrib.auth.backends.ModelBackend',
+]
+
+#enlace para login.html
+<a href="{% url 'social:begin' 'facebook' %}">Ingresar con facebook</a>
+
+
+#agregar a context_proccessors
+
+'social_django.context_processors.backends', 
+'social_django.context_processors.login_redirect',
+
+
+#obtener campos adicionales desde facebook
+#con esta configuracion podemos traer el email y la imagen
+
+SOCIAL_AUTH_FACEBOOK_SCOPE = ['email', 'user_link'] 
+
+SOCIAL_AUTH_FACEBOOK_PROFILE_EXTRA_PARAMS = {  
+  'fields': 'id, name, email, picture.type(large), link'
+}
+
+
+SOCIAL_AUTH_FACEBOOK_EXTRA_DATA = [               
+    ('name', 'name'),
+    ('email', 'email'),
+    ('picture', 'picture'),
+    ('link', 'profile_url'),
+]
+
+#para agregar la imagen en base.html agregar:
+ {% for auth in backends.associated %}
+
+    {% if auth.provider == 'facebook' %}
+        <img src="{{ auth.extra_data.picture.data.url }}" alt="" width="50" height="50">
+    {% endif %}
+
+{% endfor %}
+
+#excepciones
+
+SOCIAL_AUTH_RAISE_EXCEPTIONS = False
+LOGIN_ERROR_URL = '/error-facebook/'
+
+#agregar a middleware
+'social_django.middleware.SocialAuthExceptionMiddleware',
