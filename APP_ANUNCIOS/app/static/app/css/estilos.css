@@ -1,3 +1,12 @@
+
+#logoper img{
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 0 50px #000000;
+    -webkit-filter: invert(100%);
+    filter: invert(100%);
+    border-radius: 50%;
+}
+
 * {
     margin:0;
     padding:0;
@@ -13,7 +22,7 @@ body{
 
 
 
-.logo{
+.logo {
     height: 100px;
     width: 100px;
 }
@@ -42,7 +51,7 @@ nav ul{
 	justify-content:space-evenly;
 	align-items:center;
     position: fixed;
-    background-color: #934f39;
+    background-color: #3588af;
     z-index: 100;
 
 }
@@ -82,9 +91,9 @@ nav ul li a:hover{
 }
 
 
-nav ul img:hover{
 
-    box-shadow: 0 0 50px #fef7e5;
+nav ul img{
+    box-shadow: 0 0 50px #ffffff;
     -webkit-filter: invert(100%);
     filter: invert(100%);
     border-radius: 50%;
@@ -120,8 +129,24 @@ h1:hover{
     display: flex;
     flex-wrap: wrap;
     font: 1em sans-serif; 
-    align-content: center; 
+    padding-left: 50px;
+    padding-right: 50px;
     
+}
+.anuncios a{
+    text-decoration: none;
+    color: #fff;
+	margin-top: 30%;
+	text-shadow:
+		0 0 5px rgb(0, 255, 85),
+		0 0 10px rgb(0, 255, 98),
+		0 0 20px rgb(0, 255, 115),
+		0 0 40px rgb(41, 127, 38),
+		0 0 80px rgb(41, 127, 38),
+		0 0 90px rgb(38, 127, 68),
+		0 0 100px rgb(38, 127, 78),
+		0 0 140px rgb(38, 127, 57),
+		0 0 180px rgb(38, 127, 65);
 }
 
 .anuncios ul {
@@ -138,14 +163,12 @@ h1:hover{
    height: 270px;
    overflow: hidden;
    margin: 0 15px 15px 0;
-   box-shadow: 0 0 10px #934f39;
+   box-shadow: 0 0 10px #3588af;
    }
 .anuncios img{
     width: 350px;
     height: 270px;
-    
-
-    
+ 
 
 }
 
@@ -154,6 +177,10 @@ h1:hover{
     height: 35px;
 }
 
+.anuncios #nombreAnuncios{
+    color: #1666ce;
+    padding-left: 30px;
+}
 
 .anuncios .info {
     display: none;
@@ -164,9 +191,9 @@ h1:hover{
     filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#50000000,endColorstr=#50000000);
     width: 100% ;
     height: 100%;
-    color: #934f39;
+    color: #a7a7a7;
     padding: 10px;
-    border: solid #934f39;
+    border: solid #3588af;
     overflow:auto;
     
    }
@@ -184,7 +211,7 @@ h1:hover{
     
     width: 100%;
     color: white;
-    background-color:#934f39;
+    background-color:#3588af;
     left: 5%;
     
   }
@@ -203,10 +230,11 @@ h1:hover{
       
   }
   .redes a img :hover{
-    box-shadow: 0 0 20px black;
+    box-shadow: 0 0 20px rgb(0, 0, 0);
     -webkit-filter: invert(100%);
     filter: invert(100%);
   }
+
   
   .terminos{
       grid-column:2;
@@ -249,10 +277,12 @@ h1:hover{
 
 /*Formulario Login*/
 .cardlogin{
+    color: white;
     border-radius: 1rem;
     height: auto;
     border:#fef7e5;
-	box-shadow: 0 0 20px #934f39;
+	box-shadow: 0 0 20px #3588af;
+    background-color: rgba(0, 0, 0, 0.575);
 }
 
 
@@ -262,8 +292,8 @@ h1:hover{
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
     text-transform:uppercase;
-	text-shadow:10px 10px 4px #934f39;
     transition: 1s;
+    color: rgb(0, 0, 0);
 }
 
 #LosFormularios:hover{
@@ -283,12 +313,12 @@ h1:hover{
     color: black;
     border:#fef7e5;
     background-color: #fef7e5;
-	box-shadow: 0 0 20px #934f39;
+	box-shadow: 0 0 20px #3588af;
 }
 
 .btn.btn-success:hover{
     background-color: #fef7e5;
-    border-color: #934f39;
+    border-color: #3588af;
 }
 
 /*boton continuar con facebook*/
@@ -302,7 +332,7 @@ h1:hover{
     font-weight: bold;
     border:#fef7e5;
     background-color: #fef7e5;
-	box-shadow: 0 0 20px #934f39;
+	box-shadow: 0 0 20px #3588af;
     padding: 7px 10px;
     text-decoration: none;
     border-radius: 3px;
@@ -320,9 +350,10 @@ h1:hover{
 /*Formulario registro*/
 .cardRegistro{
     border-radius: 1rem;
-    background-color: tranparent;
+    background-color: rgba(0, 0, 0, 0.575);
     height: auto;
-    box-shadow: 0 0 20px #934f39;
+    box-shadow: 0 0 20px #3588af;
+    color: white;
 }
 
 /*boton de registrarse*/
@@ -334,17 +365,17 @@ h1:hover{
 
 
 .btn.btn-success:hover{
-    background-color: #934f39;
-    border-color: #934f39;
+    background-color: #3588af;
+    border-color: #3588af;
 }
 
 /*Formulario de agregar producto*/
 .cardProductoNuevo{
     border-radius: 1rem;
-    background-color: transparent;
+    background-color: rgba(0, 0, 0, 0.486);
     height: auto;
-    background-color: #fef7e5;
-	box-shadow: 0 0 20px #934f39;
+	box-shadow: 0 0 20px #3588af;
+    color: white;
 }
 
 .productoNuevo{
@@ -358,12 +389,13 @@ h1:hover{
     font-weight: bold;
     width: 90px;
     background-color: rgb(156, 156, 153);
-    border-color: #934f39;
+    border-color: #3588af;
+    margin-right: 5px;
 }
 
 .btn.btn-primary-Guardar:hover{
     background-color: rgb(194, 194, 194);
-    border-color: #934f39;
+    border-color: #3588af;
 }
 
 /*Boton cancelar*/
@@ -377,12 +409,12 @@ h1:hover{
     font-weight: bold;
     width: 90px;
     background-color: rgb(172, 55, 55);
-    border-color: #934f39;
+    border-color: #3588af;
 }
 
 .btn.btn-secondary-Cancelar:hover{
     background-color: rgb(194, 69, 69);
-    border-color: #934f39;
+    border-color: #3588af;
 }
 
 
@@ -390,8 +422,9 @@ h1:hover{
 .cardModificar{
     border-radius: 1rem;
     height: auto;
-    background-color: #fef7e5;
-	box-shadow: 0 0 20px #934f39;
+    background-color: rgba(0, 0, 0, 0.486);
+	box-shadow: 0 0 20px #3588af;
+    color: white;
 }
 
 /*Boton de modificar el producto*/
@@ -405,12 +438,12 @@ h1:hover{
     font-weight: bold;
     width: 90px;
     background-color: rgb(156, 156, 153);
-    border-color: #934f39;
+    border-color: #3588af;
 }
 
 .btn.btn-primary-modificar-guar:hover{
     background-color: rgb(194, 194, 194);
-    border-color: #934f39;
+    border-color: #3588af;
 }
 
 /*Boton cancelar la modificación del producto*/
@@ -423,26 +456,26 @@ h1:hover{
 .btn.btn-secondary-modificas-cance{
     font-weight: bold;
     width: 90px;
-    background-color: #934f39;
-    border-color: #934f39;
+    background-color: #3588af;
+    border-color: #3588af;
 }
 
 .btn.btn-secondary-modificas-cance:hover{
     background-color: rgb(194, 69, 69);
-    border-color: #934f39;
 }
 
 /*Listado de producto*/
 .cardListado{
+
     border-radius: 1rem;
-    background-color: #fef7e5;
-	box-shadow: 0 0 20px #934f39;
+    background-color: #ffffff;
+	box-shadow: 0 0 20px #3588af;
     height: auto;
 }
 
 .table>:not(caption)>*>* {
 	
-    background-color:transparent ;
+    background-color:transparent;
 }
 
 
@@ -459,7 +492,7 @@ label.requiredField{
 
 .text-muted{
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    color: white;
+    color: rgb(0, 0, 0);
 }
 
 #listaProducto{

@@ -2,7 +2,26 @@
 
 {% load static %} 
 
-{% block js %} 
+{% block js %}
+<script>
+    function eliminarProducto(id) {
+        Swal.fire({
+            "title": "¿Estas seguro?",
+            "text":"Esta acción no se puede deshacer",
+            "icon": "question",
+            "showCancelButton":true,
+            "cancelButtonText":"No, Cancelar",
+            "confirmButtonText":"Si, Eliminar",
+            "reverseButtons":true,
+            "confirmButtonColor":"#dc3545"
+        })
+        .then(function(result) {
+            if(result.isConfirmed){
+                window.location.href = "/eliminar-producto/"+id+"/"
+            }
+        })
+    }
+</script>
 <script src="{% static 'app/js/menu.js' %}"></script>
 <script>
     $(document).ready(function() {
@@ -47,15 +66,18 @@
             <img src="{{ p.imagen.url }}" alt="imagen producto">
             {% endif %}
             <div class="info">
-                <h4>{{ p.nombre | title }}</h4>
+                <h4 id="nombreAnuncios">{{ p.nombre | title }}</h4>
                 <h6>{{ p.descripción }}</h6> 
                 <h6>{{ p.fecha_fabricacion }}</h6>
+                <a href="https://wa.link/m8yp4o"><img src="{% static 'app/img/whatsapp2.ico'%}" alt="whatsapp"><b> Comprar</b></a><br>
 
                 {% if user.username == p.username%}
                 {% if user.is_authenticated %}
                 <a href="{% url 'modificar_producto' p.id %}"><img src="{% static 'app/img/editar.ico'%}"></a>
                 {% endif %}
-                
+                {% if perms.app.delete_producto %}
+                <a href="#" onclick="eliminarProducto({{ p.id }})"><img src="../static/app/img/eliminar.ico"></a> 
+                {% endif %}
                 {% endif %}
             </div>
             </li>

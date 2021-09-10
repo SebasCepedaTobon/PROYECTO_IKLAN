@@ -44,8 +44,8 @@
                     </li>
                     
                     
-                    <li>{% if user.is_authenticated  %}
-                        <img src="{% static 'app/img/persona.ico'%}" alt="persona1" >
+                    <li id="logoper">{% if user.is_authenticated  %}
+                        <img id="logoper" src="{% static 'app/img/persona.ico'%}" alt="persona1" >
                         <ul>
                             
                             <li><a href="#">{{ user.username }}</a>

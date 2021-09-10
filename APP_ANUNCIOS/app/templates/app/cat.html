@@ -58,6 +58,7 @@
                 <h4>{{ p.nombre | title }}</h4>
                 <h6>{{ p.descripción }}</h6> 
                 <h6>{{ p.fecha_fabricacion }}</h6>
+                <a href="https://wa.link/m8yp4o"><img src="{% static 'app/img/whatsapp2.ico'%}" alt="whatsapp"><b> Comprar</b></a><br>
 
                 {% if user.username == p.username%}
                 {% if user.is_authenticated %}
